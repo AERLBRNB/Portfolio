@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title> Document </title>
+
+<style>
+    @font-face {
+        font-family: 'Mantinia';
+        src: url('Mantinia-Regular.ttf') format('ttf');
+    }
+    body {
+        font-family: 'Mantinia', serif;
+        background-image: url(https://i.redd.it/some-4k-screenshots-i-took-of-the-frenzied-flame-ending-v0-tptnmwh58bpd1.jpg?width=3840&format=pjpg&auto=webp&s=725eccce048e0da4bd2e97b0bd893a78cc863b89);
+        background-size: cover;
+    }
+
+    form {
+        width: 400px;
+        margin: 30px auto;
+        background-color: #111111b5;
+        padding: 20px;
+        border: 2px solid #ff4d00;
+        border-radius: 8px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ff4d00;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        color: #ff4d00;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ffae00;
+        background-color: rgb(0, 0, 0);
+        color: #ffae00;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: 'Mantinia', serif;
+    }
+
+    input::placeholder {
+        color: #666;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+        display: inline;
+        margin-left: 5px;
+    }
+
+    .radio-group input,
+    .checkbox-group input {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    button {
+        padding: 10px;
+        width: 48%;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .clearfix {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    button[type="submit"] {
+        background-color: #ff4d00;
+        color: black;
+        font-family: 'Mantinia', serif;
+    }
+
+    button[type="button"] {
+        background-color: black;
+        color: #ffae00;
+        border: 1px solid #ffae00;
+        font-family: 'Mantinia', serif;
+    }
+
+    .small-btn {
+        width: 100%;
+        background-color: #ffae00;
+        color: black;
+        margin-top: -5px;
+        margin-bottom: 10px;
+        font-family: 'Mantinia', serif;
+    }
+</style>
+</head>
+    <body>
+        <script>
+function togglePassword() {
+    let pass = document.getElementById("psw");
+    let confirm = document.getElementById("psw-repeat");
+
+    if (pass.type === "password") {
+        pass.type = "text";
+        confirm.type = "text";
+    } else {
+        pass.type = "password";
+        confirm.type = "password";
+    }
+}
+
+function RegistrationSummary(event){
+    event.preventDefault();
+
+    let name = document.getElementById("fullName").value;
+    let email = document.getElementById("email").value;
+    let psw = document.getElementById("psw").value;
+    let psw_repeat = document.getElementById("psw-repeat").value;
+    let age = document.getElementById("age").value;
+    let country = document.getElementById("country").value;
+
+    let gender = "";
+    if (document.getElementById("male").checked) {
+        gender = "Male";
+    } 
+    else if (document.getElementById("female").checked) {
+        gender = "Female";
+    } 
+    else if (document.getElementById("other").checked) {
+        gender = "Other";
+    }
+
+    if (psw !== psw_repeat) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    alert(
+        "REGISTRATION SUMMARY\n" +
+        "----------------------------\n" +
+        "Full Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Age: " + age + "\n" +
+        "Gender: " + gender + "\n" +
+        "Country: " + country + "\n\n" +
+        "TERMS & CONDITIONS\n" +
+        "----------------------------\n" +
+        "By creating an account, you agree that all information provided is true and accurate.\n" +
+        "You also agree to follow the platform rules and privacy policy."
+    );
+}
+        </script>
+    <form>
+        <h1> Registration Form </h1>
+        <label>Full Name</label>
+        <input id="fullName" type="text" placeholder="Enter Full Name">
+        <label>Email</label>
+        <input id="email" type="text" placeholder="Enter Email">
+        <label>Password</label>
+        <input id="psw" type="password" placeholder="Enter Password">
+        <label>Confirm Password</label>
+        <input id="psw-repeat" type="password" placeholder="Confirm Password">
+        <button class="small-btn" type="button" onclick="togglePassword()">Show / Hide Password </button>
+        <label>Age</label>
+        <input id="age" type="number" placeholder="Enter Age">
+        <label>Gender</label>
+        <div class="radio-group">
+            <input id="male" type="radio" name="gender">
+            <label for="male">Male</label>
+            <br>
+            <input id="female" type="radio" name="gender">
+            <label for="female">Female</label>
+            <br>
+            <input id="Other" type="radio" name="gender">
+            <label for="Other">Other</label>
+        </div>
+        <label>Country</label>
+        <select id="country">
+            <option>USA</option>
+            <option>UK</option>
+            <option>Brazil</option>
+            <option>China</option>
+            <option>Japan</option>
+            <option>Philippines</option>
+            <option>Korea</option>
+        </select>
+        <div class="checkbox-group">
+            <input id="agree" type="checkbox">
+            <label for="agree"> I agree to the Terms & Privacy</label>
+        </div>
+        <div class="clearfix">
+            <button type="button">Clear Form</button>
+            <button type="submit" onclick="RegistrationSummary(event)">Register</button>
+        </div>
+    </form>
+    </body>
+</html>
