@@ -1,204 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Portfolio - Home</title>
 
     <style>
-        @font-face {
-            font-family: 'Mantinia';
-            src: url('Mantinia Regular.otf') format('opentype'); 
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+    @font-face {
+        font-family: 'Rajdhani';
+        src: url('Rajdhani-Regular.ttf') format('truetype');
+    }
 
-        body {
-            margin: 0;
-            background-image: url(https://images.steamusercontent.com/ugc/2058741034012526512/379E6434B473E7BE31C50525EB946D4212A8C8B3/);
-            color: #f0c975;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: 'Mantinia', serif;
-        }
+    body {
+        margin: 0;
+        background-color: black;
+        color: #c5003c;
+        font-family: 'Rajdhani', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        
-        .navbar {
-            background-color: #040200;
-            padding: 15px 0;
-            text-align: center;
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+            to bottom,
+            #c5003b47 0px,
+            #c5003b47 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        z-index: 999;
+    }
 
-        .navbar a {
-            color: #f9c043;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 25px;
-            font-size: 16px;
-        }
 
-        .navbar a:hover {
-            color: white;
-        }
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: #c5003b15;
+        animation: flicker 0.15s infinite;
+        z-index: 998;
+    }
 
-        .container {
-            max-width: 800px;
-            width: 90%;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .profile-card {
-            background-color: #140a0595;
-            border: 3px solid #f9c043;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            width: 100%;    
-        }
 
-        .profile-card img {
-            border-radius: 50%;
-            border: 3px solid #f8c964;
-            width: 120px;
-            height: 120px;
-            margin-bottom: 15px;
-        }
+    @keyframes flicker {
+        0% { opacity: 0.95; }
+        50% { opacity: 1; }
+        100% { opacity: 0.92; }
+    }
 
-        .profile-card h1 {
-            margin: 10px 0 5px 0;
-            font-size: 24px;
-            color: #f9c043;
-        }
+    .navbar {
+        background-color:#000000;
+        padding: 15px 0;
+        text-align: center;
+        width: 100%;
+        position: sticky;
+        top: 0;
+    }
 
-        .profile-card p {
-            margin: 5px 0;
-            font-size: 16px;    
-        }
+    .navbar a {
+        color: #880425;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 20px;
+    }
 
-        
-        .section {
-            margin-top: 30px;
-            background-color: #140a0595;
-            border-left: 5px solid #f9c043;
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            text-align: center;
-        }
+    .navbar a:hover {
+        color: white;
+    }
 
-        .section h2 {
-            margin-top: 0;
-            color: #f9c043;
-        }
+    .container {
+        position: relative;
+        max-width: 1000px;
+        width: 90%;
+        margin: 40px auto;
+        background-color: #0b0502;
+        border: 3px solid #880425;
+        border-radius: 15px;
+        padding: 20px;
 
-        .section p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
+        display: flex;
+        gap: 20px;
+    }
 
-        hr {
-            margin: 40px 0;
-            border: 1px solid #bd6707;
-            width: 80%;
-        }
+    .main-content {
+        flex: 1;
+    }
 
-        
-        .links a {
-            display: inline-block;
-            margin: 6px;
-            padding: 8px 12px;
-            border: 1px solid #f9c043;
-            color: #f9c043;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+    .right-side {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 
-        .links a:hover {
-            background-color: #f9c043;
-            color: black;
-        }
+    .top-image {
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+    }
 
-        
-        .top {
-            margin: 30px;
-        }
+    .spotify-box {
+        background-color: #0f0704;
+        border: 2px solid #880425;
+        border-radius: 10px;
+        padding: 15px;
+    }
 
-        .top a {
-            color: #f9c043;
-            text-decoration: none;
-        }
+    .glitch {
+        position: relative;
+    }
 
-    </style>
+    .glitch img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .glitch::before,
+    .glitch::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('Untitled1_20260501145527.png');
+        background-size: cover;
+        opacity: 0.6;
+    }
+
+    .glitch::before {
+        animation: glitchTop 0.7s infinite;
+        transform: translate(2px, -2px);
+    }
+
+    .glitch::after {
+        animation: glitchBottom 0.7s infinite;
+        transform: translate(-2px, 2px);
+    }
+
+    @keyframes glitchTop {
+        0% { clip-path: inset(0 0 80% 0); }
+        25% { clip-path: inset(15% 0 60% 0); }
+        50% { clip-path: inset(30% 0 30% 0); }
+        75% { clip-path: inset(10% 0 70% 0); }
+        100% { clip-path: inset(0 0 80% 0); }
+    }
+
+    @keyframes glitchBottom {
+        0% { clip-path: inset(80% 0 0 0); }
+        25% { clip-path: inset(60% 0 10% 0); }
+        50% { clip-path: inset(40% 0 20% 0); }
+        75% { clip-path: inset(70% 0 5% 0); }
+        100% { clip-path: inset(80% 0 0 0); }
+    }
+
+    .profile-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .profile-card img {
+        width: 150px;
+        height: 150px;
+        border: 3px solid #880425;
+    }
+
+    .profiletext h1 {
+        margin: 0;
+    }
+
+    .section {
+        border-left: 5px solid #880425;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .section p {
+        line-height: 1.5;
+    }
+
+    .top {
+        text-align: center;
+        margin: 20px;
+    }
+</style>
 </head>
 
 <body>
 
-
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="output.html">Output</a>
-</div>
-
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="quizzes.html">Quizzes</a>
+        <a href="lab.html">Laboratory</a>
+        <a href="exams.html">Exams</a>
+    </div>
 
 <div class="container">
 
-    
-    <div class="profile-card" id="top">
-        <img src="https://scontent.fmnl45-1.fna.fbcdn.net/v/t39.30808-6/476830553_1297221214885807_2249127537561049501_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=53a332&_nc_ohc=i7G-ENhkDcUQ7kNvwHur1VX&_nc_oc=AdrDNW9OHzpE_dAXWo77BTwvIMWf6Mnk5Mo86egRGwn1GxCQoU3lQs6SSNnW6XP_yM010f0nOQbvMZ85zcWCNivx&_nc_zt=23&_nc_ht=scontent.fmnl45-1.fna&_nc_gid=sEPY0N27z5SvYJTRg9Wk6g&_nc_ss=7b2a8&oh=00_Af2OI5O_-0c0JjITRiBlJkWCqRaoipxNrXB2oWfE9WMg5w&oe=69F1E72F" alt="Profile">
-        <h1>Earl Jam B. Bernabe</h1>
-        <p>BS Computer Science - CS-1B</p>
-        <p>Student No: 251101135</p>
+    <div class="main-content">
+
+        <div class="profile-card" id="top">
+            <img src="https://scontent.fmnl45-1.fna.fbcdn.net/v/t39.30808-6/476830553_1297221214885807_2249127537561049501_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=53a332&_nc_ohc=i7G-ENhkDcUQ7kNvwHur1VX&_nc_oc=AdrDNW9OHzpE_dAXWo77BTwvIMWf6Mnk5Mo86egRGwn1GxCQoU3lQs6SSNnW6XP_yM010f0nOQbvMZ85zcWCNivx&_nc_zt=23&_nc_ht=scontent.fmnl45-1.fna&_nc_gid=sEPY0N27z5SvYJTRg9Wk6g&_nc_ss=7b2a8&oh=00_Af2OI5O_-0c0JjITRiBlJkWCqRaoipxNrXB2oWfE9WMg5w&oe=69F1E72F" alt="Profile">
+
+            <div class="profiletext">
+                <h1>Earl Jam B. Bernabe</h1>
+                <p>BS Computer Science - CS-1B</p>
+                <p>Student No: 251101135</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm Earl, I work at McDonald's as a part-time crew, mostly playing games in my free time, or
+            outside just wandering around. I also make some one-shot manga that I don't plan on showing the public.</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <p>HTML, CSS, Basic JavaScript, Java, C++, Adobe Photoshop, Davinci Resolve, Clip Studio Paint, Blender</p>
+        </div>
+
+        <div class="section">
+            <h2>Hobbies</h2>
+            <p>Playing games, Drawing, Listening to Music, Drinking, Hanging out with friends, Fixing Laptops and Desktops</p>
+        </div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <p> E-mail: earljam.bernabe@cvsu.edu.ph
+                SocMed: <a style="color:#f3e600;" href="https://www.facebook.com/earljam.bernabe.946">www.facebook.com/earljam.bernabe.946</a>
+            </p>
+        </div>
+
     </div>
 
-    <hr>
+    <div class="right-side">
 
+        <div class="top-image glitch">
+            <img src="Untitled1_20260501145527.png" alt="Top Image">
+        </div>
 
-    <div class="section" id="about">
-        <h2>About Me</h2>
-        <p>
-            I'm Earl, I work at McDonald's as a part-time crew, mostly playing games in my free time, or
-            outside just wandering around. I also make some one-shot manga that I don't plan on showing the public.
-        </p>
-    </div>
+        <div class="spotify-box">
+            <h2>My Playlist</h2>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1Swl7C86irTQSLWddkcvH3?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
 
-    
-    <div class="section" id="skills">
-        <h2>Skills</h2>
-        <p>HTML, CSS, Basic JavaScript, Java, C++, Adobe Photoshop, Davinci Resolve, Clip Studio Paint, Blender</p>
-    </div>
-
-    
-    <div class="section" id="hobbies">
-        <h2>Hobbies</h2>
-        <p>Playing games, Drawing, Listening to Music, Drinking, Hanging out with friends</p>
-    </div>
-
-
-    
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: earljam.bernabe@cvsu.edu.ph</p>
-        <p>Facebook: <a href="https://www.facebook.com/earljam.bernabe.946">https://www.facebook.com/earljam.bernabe.946</a></p>
-        <p>Location: Philippines</p>
-    </div>
-
-    
-    <div class="top">
-        <a href="#top"> Back to Top</a>
     </div>
 
 </div>
 
-</body>
+    </body>
 </html>
