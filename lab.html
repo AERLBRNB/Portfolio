@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Portfolio - Home</title>
+
+    <style>
+        @font-face {
+            font-family: 'Mantinia';
+            src: url('Mantinia Regular.otf') format('opentype');
+        }
+
+        body {
+            margin: 0;
+            background-image:url(https://www.image2url.com/r2/default/images/1777103096920-6230b0ff-9da9-4a69-92e7-ab4741c03fda.gif);
+            color: #f0c975;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Mantinia', serif;
+        }
+
+        .navbar {
+            background-color: #040200;
+            padding: 15px 0;
+            text-align: center;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            
+        }
+
+        .navbar a {
+            color: #f9c043;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 25px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: white;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .profile-card {
+            background-color: #140a0595;
+            border: 3px solid #f9c043;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            width: 25%;       
+        }
+
+        .profile-card img {
+            border-radius: 50%;
+            border: 3px solid #f8c964;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
+        }
+        
+        .profile-card h1 {
+            margin: 10px 0 5px 0;
+            font-size: 24px;
+            color: #f9c043;
+        }
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .cardCaption{
+            margin-top: 8px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 5px black;
+            background: rgba(0,0,0,0.4);
+            padding: 5px 12px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="quizzes.html">Quizzes</a>
+    <a href="lab.html">Laboratory</a>
+    <a href="exams.html">Exams</a>
+</div>
+
+<div class="profile-card">
+        <img src="https://www.image2url.com/r2/default/images/1777103171118-6c5f3e58-336f-40e2-b135-38e90acc45bf.gif" alt="kaypler-b">
+        <h1>Under Construction</h1>
+</div>
+</body>
+</html>
